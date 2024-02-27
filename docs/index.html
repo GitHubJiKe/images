@@ -53,19 +53,18 @@
         </section>
     </div>
     <script type="module">
-        console.log(1111);
         import images from './images.json' assert { type: 'json' };
         const imageBoxEl = document.getElementById('imageBox')
         console.log(images);
         images.forEach(img => {
             const imgEl = document.createElement('img')
-            const imgPath = `/uPic/${img}`
+            const imgPath = `https://raw.githubusercontent.com/GitHubJiKe/images/main/uPic/${img}`
             imgEl.src = imgPath;
             const box = document.createElement('div')
             box.style.display = 'flex'
             box.style.flexDirection = 'column'
             const urlEl = document.createElement('a')
-            const link = `https://githubjike.github.io/images${imgPath}`
+            const link = imgPath
             urlEl.href = link
             urlEl.target = '_blank';
             urlEl.innerHTML = link
