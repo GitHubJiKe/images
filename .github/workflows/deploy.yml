@@ -15,7 +15,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '18'  # 指定Node.js的版本
+        node-version: '20'  # 指定Node.js的版本
 
     - name: Install Dependencies
       run: npm install
