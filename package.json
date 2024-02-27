@@ -1,0 +1,14 @@
+{
+  "name": "images",
+  "version": "1.0.0",
+  "description": "> to store images",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "gen": "node ./scripts/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
