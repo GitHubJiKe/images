@@ -1,7 +1,7 @@
 function genImgList() {
     const fs = require('fs');
     const path = require('path');
-
+    console.log(process.cwd());
     const directoryPath = path.join(__dirname, '../uPic');
     const filePath = path.join(__dirname, '../docs/images.json');
     fs.readdir(directoryPath, function (err, files) {
