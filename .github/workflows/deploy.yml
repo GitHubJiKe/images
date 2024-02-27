@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 或者你使用的是master分支，则为master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '18'  # 指定Node.js的版本
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Custom NPM Script
+      run: npm run gen  # 这里替换为你的npm脚本
+
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: main  # GitHub Pages分支
+        FOLDER: docs      # 构建产物所在的目录
+        CLEAN: false       # 清理旧文件
