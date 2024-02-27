@@ -21,11 +21,11 @@ jobs:
       run: npm run gen  # 这里替换为你的npm脚本
 
     - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
+      uses: actions/upload-pages-artifact@v3
+      with:
           # Upload entire repository
           path: '.'       # 清理旧文件
 
     - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      id: deployment
+      uses: actions/deploy-pages@v4
