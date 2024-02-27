@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stored Images</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .app {
+            padding: 24px;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 30px;
+
+            div {
+                border: 1px solid burlywood;
+                border-radius: 12px;
+                padding: 12px;
+                text-align: center;
+            }
+
+            img {
+                flex: 1;
+                max-width: 96vw;
+                height: 300px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <header>
+            <h1>Stored Images</h1>
+        </header>
+        <section class="images" id="imageBox">
+
+        </section>
+    </div>
+    <script type="module">
+        import images from './images.json' assert { type: 'json' };
+        const imageBoxEl = document.getElementById('imageBox')
+        console.log(images);
+        images.forEach(img => {
+            const imgEl = document.createElement('img')
+            const imgPath = `https://raw.githubusercontent.com/GitHubJiKe/images/main/uPic/${img}`
+            imgEl.src = imgPath;
+            const box = document.createElement('div')
+            box.style.display = 'flex'
+            box.style.flexDirection = 'column'
+            const urlEl = document.createElement('a')
+            const link = imgPath
+            urlEl.href = link
+            urlEl.target = '_blank';
+            urlEl.innerHTML = link
+            box.append(imgEl, urlEl)
+            imageBoxEl.appendChild(box)
+        })
+    </script>
+</body>
+
+</html>
