@@ -16,10 +16,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '20'  # 指定Node.js的版本
-
-    - name: Install Dependencies
-      run: npm install
-
+        
     - name: Run Custom NPM Script
       run: npm run gen  # 这里替换为你的npm脚本
 
